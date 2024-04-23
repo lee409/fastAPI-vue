@@ -16,7 +16,7 @@ class CURDRole(CRUDBase):
         obj_in_data = obj_in if isinstance(obj_in, dict) else jsonable_encoder(obj_in)
         del obj_in_data['menus']
         obj_in_data['creator_id'] = creator_id
-        obj = self.model(**obj_in_data)   # type: Roles
+        obj = self.model(**obj_in_data)  # type: Roles
         obj.role_menu = menus
         db.add(obj)
         db.commit()
@@ -53,7 +53,7 @@ class CURDRole(CRUDBase):
         db.commit()
 
     def getSelectList(self, db: Session, status_in: List[int] = None):
-        status_in = status_in or (0, )
+        status_in = status_in or (0,)
         return self.query(db, queries=[self.model.id, self.model.key, self.model.name],
                           filters=[self.model.status.in_(status_in)], order_bys=[self.model.order_num])
 
