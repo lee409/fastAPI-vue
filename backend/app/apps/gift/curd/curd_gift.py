@@ -67,12 +67,6 @@ class CURDGift(CRUDBase):
             'enableflag': gift.enableflag
         }
 
-    # def search(self, db: Session, gift_num: int = 1, gift_name: str = "", page: int = 1, page_size: int = 25) -> dict:
-    #     filters = []
-    #     if gift_name:
-    #         filters.append(self.model.gift_name.like(f"%{gift_name}%"))
-    #     gift_data, total, _, _ = self.get_multi(db, page=page, page_size=page_size, filters=filters)
-    #     return {'results': gift_data, 'total': total}
     def search(self, db: Session, gift_num: int = None, gift_name: str = "", enableflag: int = 0,
                created_after_ts: int = None, created_before_ts: int = None,
                page: int = 1, page_size: int = 25):

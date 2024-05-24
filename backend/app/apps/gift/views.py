@@ -21,7 +21,7 @@ async def getGift(gift_id: int, db: Session = Depends(deps.get_db)):
     gift = curd_gift.get(db, gift_id)
     if gift:
         return respSuccessJson(data=gift)
-    return respErrorJson(error_code.GiftNotExist)
+    return respErrorJson(error_code.ERROR_GIFT_NOT_EXIST)
 
 
 @router.get("/listGift", summary="获取礼物列表")
